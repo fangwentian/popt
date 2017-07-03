@@ -3,7 +3,7 @@
 const yargs = require('yargs');
 const main = require('../core/main')
 const argv = yargs
-    .usage('Usage: ./poptoolkit [options]')
+    .usage('Usage: pop toolkit [options]')
     .alias('u', 'url')
     .describe('u', 'page url')
     .alias('p', 'project')

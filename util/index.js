@@ -1,5 +1,3 @@
-const chalk = require('chalk');
-
 const _util = {
     extend(o1, o2 ,override) {
         for (var i in o2)
@@ -8,27 +6,45 @@ const _util = {
             }
         return o1;
     },
+    /*
+    url只能是字母和/组成，至少一级，不超过三级
+     */
+    checkUrl(url) {
+        let reg = /^\/?([a-zA-Z]+)(\/[a-zA-Z]+){0,2}\/?$/;
+        return reg.test(url);
+    },
+    /*
+    去掉url首尾的/
+     */
     normalizeUrl(url) {
-        if(url[0] !== '/') {
-            url = '/' + url;
+        return url.replace(/^\/?(.*?)\/?$/,"$1");
+    },
+    /*
+    转换为标准三级url
+     */
+    transformToThreeLevel(url) {
+        url = this.normalizeUrl(url);
+        let paths = url.split('/');
+        let res;
+        if(paths.length == 1) {
+            res = `${url}/index/index`
+        } else if(paths.length == 2) {
+            res = `${url}/index`
+        } else {
+            res = url;
         }
-        return url;
+        return res;
+    },
+    checkProject(poptConfig, project) {
+        if (!poptConfig || !project || !poptConfig[project]) {
+            return false;
+        }
+        return true;
     },
     getConfig(poptConfig, project) {
         let common = poptConfig.common;
-        let projectConfig = poptConfig[project];
+        let projectConfig = poptConfig[project] || {};
         return this.extend(common, projectConfig, true);
-    },
-    analysisUrl(url) {
-        if(!url) throw 'url can not be empty'
-        if(url[0] === '/') {
-            url = url.slice(1);
-        }
-        let res = url.split('/');
-        if(res.length > 3 || res.length < 1) {
-            throw 'url format not correct';
-        }
-        return res;
     }
 }
 

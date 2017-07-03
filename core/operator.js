@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs-extra');
 const log = require('../util/log');
 const operator = {

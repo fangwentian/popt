@@ -11,20 +11,20 @@ const poptTemplates = path.join(poptPath, '/templates');         // templates文
 const poptConfig = require(poptConfigPath);
 
 module.exports = (url, project, force) => {
-    if(util.checkUrl(url)) {
+    if(!util.checkUrl(url)) {
         log('red', 'incorrect url format');
         return;
     }
-    if(util.checkProject(poptConfig, project)) {
+    if(!util.checkProject(poptConfig, project)) {
         log('red', 'can not find project in config file');
         return;
     }
-    let url = util.normalizeUrl(url);                                                                    // 去掉首尾/的url
+    url = util.normalizeUrl(url);                                                                    // 去掉首尾/的url
     let config = util.getConfig(poptConfig, project);                                                    // 配置的config
     let threeLevelUrl = util.transformToThreeLevel(url);                                                 // 标准三级url
 
     let mockDataPath = path.join(currentPath, config.basePath, config.mockPath, `get/${threeLevelUrl}`); // mockData要放置的路径
-    let proxyFtlPath = `pages${threeLevelUrl}`;                                                          // proxyRule ftl路径
+    let proxyFtlPath = `pages/${threeLevelUrl}`;                                                          // proxyRule ftl路径
     let ftlPath = path.join(currentPath, config.basePath, config.templatePath, proxyFtlPath);            // ftl要放置的路径
     let pageDataPath = path.join(currentPath, config.basePath, config.pageJsPath, threeLevelUrl);        // 页面entry.js等放置的目录
 

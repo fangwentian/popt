@@ -25,5 +25,5 @@
 </script>
 <!-- @SCRIPT -->
 <script src="{{nejRoot}}"></script>
-<script src="{{jspro}}page/_$1/entry.js"></script>
+<script src="{{jspro}}page/$url/entry.js"></script>
 {% endblock %}

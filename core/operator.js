@@ -41,10 +41,10 @@ const operator = {
         fs.outputFile(proxyRulePath, content);
     },
     // 添加页面mock假数据
-    createPageMockFile(poptTemplates, mockDataPath, force) {
+    createPageMockFile(poptTemplates, mockDataPath, force, mockHandler) {
         let from = path.join(poptTemplates, 'page.mock.json');
         let dest = `${mockDataPath}.json`;
-        this.createFile(from, dest, force);
+        this.createFile(from, dest, force, mockHandler);
     },
     // 添加页面ftl
     createFtl(poptTemplates, ftlPath, force, ftlHandler) {

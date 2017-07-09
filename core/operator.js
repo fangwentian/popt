@@ -7,12 +7,12 @@ const operator = {
         let func = (data) => {return data}
         handler = handler || func;
         if(fs.existsSync(dest) && !force) {
-            log('yellow',`file already exist: ${dest}`);
+            log('yellowBright',`file already exist: ${dest}`);
             return false;
         }
         let content = fs.readFileSync(from).toString();
         fs.outputFile(dest, handler(content));
-        log('green', `output file to ${dest}`);
+        log('greenBright', `output file to ${dest}`);
     },
     // 添加路由规则
     addProxyRule(currentPath, config, url, proxyFtlPath) {
@@ -25,7 +25,7 @@ const operator = {
         let proxyRules = require(proxyRulePath);
         let existRules = Object.keys(proxyRules).some((key) => {
             if(key.includes(url)) {
-                log('yellow', `rule already exist in proxyRules.js: ${url}`);
+                log('yellowBright', `rule already exist in proxyRules.js: ${url}`);
                 return true;
             }
             return false;
@@ -52,16 +52,19 @@ const operator = {
         let dest = `${ftlPath}.ftl`;
         this.createFile(from, dest, force, ftlHandler);
     },
+    // 添加nej入口文件
     createEntry(poptTemplates, pageDataPath, force) {
         let from = path.join(poptTemplates, 'entry.js');
         let dest = path.join(pageDataPath, 'entry.js');
         operator.createFile(from, dest, force);
     },
+    // 添加基础组件page.js
     createPageJs(poptTemplates, pageDataPath, force) {
         let from = path.join(poptTemplates, 'page.js');
         let dest = path.join(pageDataPath, 'modules/page.js');
         operator.createFile(from, dest, force);
     },
+    // 添加基础组件模板page.html
     createPageHtml(poptTemplates, pageDataPath, force) {
         let from = path.join(poptTemplates, 'page.html');
         let dest = path.join(pageDataPath, 'modules/page.html');

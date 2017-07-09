@@ -5,10 +5,10 @@ const util = require('../util/index');
 const operator = require('./operator');
 
 const currentPath = process.cwd();
-const poptPath = path.join(currentPath, '/popt.config');                // popt配置文件夹的路径
+const poptPath = path.join(currentPath, '/popt.config');         // popt配置文件夹的路径
 const poptConfigPath = path.join(poptPath, '/popt.config.js');   // popt.config.js文件的路径
 const poptTemplates = path.join(poptPath, '/templates');         // templates文件夹的路径
-const poptConfig = require(poptConfigPath);
+const poptConfig = util.require(poptConfigPath);
 
 module.exports = (url, project, force) => {
     if(!util.checkUrl(url)) {

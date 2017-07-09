@@ -1,4 +1,14 @@
+const fs = require('fs-extra');
+const log = require('./log');
 const _util = {
+    require(path) {
+        try {
+            return require(path);
+        } catch(e) {
+            log('yellow', `${path} is not exist`);
+            throw `${path} is not exist`;
+        }
+    },
     extend(o1, o2 ,override) {
         for (var i in o2)
             if (o1[i] == undefined || override) {

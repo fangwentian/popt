@@ -3,14 +3,14 @@
 const yargs = require('yargs');
 const main = require('../core/main')
 const argv = yargs
-    .usage('Usage: pop toolkit [options], you must hava a popt.config folder to store the config files.')
+    .usage('Usage: pt -p pop -u marketing/coupon, you must hava a popt.config folder to store the config files.')
     .option('url', {
         alias: 'u',
         describe: 'page url, such as "marketing/coupon"'
     })
     .option('project', {
         alias: 'p',
-        describe: 'project name, such as "pop"、"cmms"'
+        describe: 'project name, such as "pop"、"cms"'
     })
     .alias('force', 'f')
     .boolean('f')

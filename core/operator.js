@@ -7,12 +7,12 @@ const operator = {
         let func = (data) => {return data}
         handler = handler || func;
         if(fs.existsSync(dest) && !force) {
-            log('redBright',`file ${dest} already exist!`);
+            log('yellow',`file already exist: ${dest}`);
             return false;
         }
         let content = fs.readFileSync(from).toString();
         fs.outputFile(dest, handler(content));
-        log('redBright', `output file to ${dest}`);
+        log('green', `output file to ${dest}`);
     },
     // 添加路由规则
     addProxyRule(currentPath, config, url, proxyFtlPath) {
@@ -25,7 +25,7 @@ const operator = {
         let proxyRules = require(proxyRulePath);
         let existRules = Object.keys(proxyRules).some((key) => {
             if(key.includes(url)) {
-                log('redBright', `rule ${url} already exist in proxyRules.js`);
+                log('yellow', `rule already exist in proxyRules.js: ${url}`);
                 return true;
             }
             return false;

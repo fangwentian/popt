@@ -15,6 +15,6 @@
   },
   "bin": {
     "pt": "./command/index.js",
-    "popt": "./command/index.js",
+    "popt": "./command/index.js"
   }
 }

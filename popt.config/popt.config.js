@@ -7,7 +7,10 @@ const _config = {
         pageJsPath: '/src/main/resources/public/src/javascript/page'
     },
     pop: {
-        basePath:'./pop-web',
+        basePath:'./pop-web'
+    },
+    cms: {
+        basePath:'./cms-web'
     }
 }
 

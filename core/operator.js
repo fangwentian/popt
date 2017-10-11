@@ -1,10 +1,11 @@
 const path = require('path');
 const fs = require('fs-extra');
 const log = require('../util/log');
+
 const operator = {
     // 把一个文件的内容写到另一个文件，可以传入handler来处理文件内容
     createFile(from, dest, force = false, handler) {
-        let func = (data) => {return data}
+        let func = (data) => { return data }
         handler = handler || func;
         if(fs.existsSync(dest) && !force) {
             log('yellowBright',`file already exist: ${dest}`);

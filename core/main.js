@@ -23,7 +23,7 @@ module.exports = (url, project, force) => {
     let config = util.getConfig(poptConfig, project);                                                    // 配置的config
     let threeLevelUrl = util.transformToThreeLevel(url);                                                 // 标准三级url
 
-    let mockDataPath = path.join(currentPath, config.basePath, config.mockPath, `get/${url}`); // mockData要放置的路径
+    let mockDataPath = path.join(currentPath, config.basePath, config.mockPath, `get/${url}`);           // mockData要放置的路径
     let proxyFtlPath = `pages/${threeLevelUrl}`;                                                         // proxyRule ftl路径
     let ftlPath = path.join(currentPath, config.basePath, config.templatePath, proxyFtlPath);            // ftl要放置的路径
     let pageDataPath = path.join(currentPath, config.basePath, config.pageJsPath, threeLevelUrl);        // 页面entry.js等放置的目录

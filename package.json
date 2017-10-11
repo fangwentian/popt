@@ -1,6 +1,6 @@
 {
   "name": "popt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "toolkit for kaola POP",
   "main": "./command/index.js",
   "scripts": {

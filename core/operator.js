@@ -37,8 +37,9 @@ const operator = {
         // 要写入的路由规则
         let rule = `'GET /${url}': '${proxyFtlPath}'`;
         let content = fs.readFileSync(proxyRulePath).toString();
-        let arr = content.split('// rule target');
-        content = arr[0] + '// rule target' + '\n' + '    ' + rule + ','+ arr[1];
+        let index = content.lastIndexOf('}');
+        content = `${content.slice(0, index)}    ${rule},\n${content.slice(index)}`;
+
         fs.outputFile(proxyRulePath, content);
     },
     // 添加页面mock假数据

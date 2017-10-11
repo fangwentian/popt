@@ -43,7 +43,7 @@ const _util = {
         } else {
             res = url;
         }
-        res = res.replace(/[A-Z]/g, '-$1').toLowerCase()
+        res = res.replace(/([A-Z])/g, "-$1").toLowerCase()
         return res;
     },
     checkProject(poptConfig, project) {

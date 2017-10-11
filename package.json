@@ -12,6 +12,7 @@
     "chalk": "^2.0.1",
     "fs-extra": "^3.0.1",
     "git-user-name": "^1.2.0",
+    "moment": "^2.19.0",
     "yargs": "^8.0.2"
   },
   "bin": {

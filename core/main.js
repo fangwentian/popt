@@ -3,6 +3,8 @@ const fs = require('fs-extra');
 const log = require('../util/log');
 const util = require('../util/index');
 const operator = require('./operator');
+const username = require('git-user-name')();
+const moment = require('moment')
 
 const currentPath = process.cwd();
 const poptPath = path.join(currentPath, '/popt.config');         // popt配置文件夹的路径
@@ -37,10 +39,15 @@ module.exports = (url, project, force) => {
         return fileData.replace('$url', threeLevelUrl);
     }
 
+    let usernameAndDateHandler = (fileData) => {
+        let now = moment().format("YYYY-MM-DD");
+        return fileData.replace(/\[username\]/, username).replace(/\[date\]/, now);
+    }
+
     operator.addProxyRule(currentPath, config, url, proxyFtlPath)
     operator.createPageMockFile(poptTemplates, mockDataPath, force, mockHandler);
     operator.createFtl(poptTemplates, ftlPath, force, ftlHandler);
-    operator.createEntry(poptTemplates, pageDataPath, force);
-    operator.createPageJs(poptTemplates, pageDataPath, force);
+    operator.createEntry(poptTemplates, pageDataPath, force, usernameAndDateHandler);
+    operator.createPageJs(poptTemplates, pageDataPath, force, usernameAndDateHandler);
     operator.createPageHtml(poptTemplates, pageDataPath, force);
 }

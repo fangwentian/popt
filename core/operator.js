@@ -54,16 +54,16 @@ const operator = {
         this.createFile(from, dest, force, ftlHandler);
     },
     // 添加nej入口文件
-    createEntry(poptTemplates, pageDataPath, force) {
+    createEntry(poptTemplates, pageDataPath, force, handler) {
         let from = path.join(poptTemplates, 'entry.js');
         let dest = path.join(pageDataPath, 'entry.js');
-        operator.createFile(from, dest, force);
+        operator.createFile(from, dest, force, handler);
     },
     // 添加基础组件page.js
-    createPageJs(poptTemplates, pageDataPath, force) {
+    createPageJs(poptTemplates, pageDataPath, force, handler) {
         let from = path.join(poptTemplates, 'page.js');
         let dest = path.join(pageDataPath, 'modules/page.js');
-        operator.createFile(from, dest, force);
+        operator.createFile(from, dest, force, handler);
     },
     // 添加基础组件模板page.html
     createPageHtml(poptTemplates, pageDataPath, force) {

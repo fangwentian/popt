@@ -53,6 +53,12 @@ const operator = {
         let dest = `${ftlPath}.ftl`;
         this.createFile(from, dest, force, ftlHandler);
     },
+    // 添加页面mcss
+    createMcss(poptTemplates, mcssPath, force) {
+        let from = path.join(poptTemplates, 'demo.mcss');
+        let dest = `${mcssPath}.mcss`;
+        this.createFile(from, dest, force);
+    },
     // 添加nej入口文件
     createEntry(poptTemplates, pageDataPath, force, handler) {
         let from = path.join(poptTemplates, 'entry.js');

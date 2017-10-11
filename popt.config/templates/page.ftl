@@ -1,7 +1,7 @@
 {% extends "wrap/layout.html" %}
+
 {% block head %}
-<style>
-</style>
+<link rel="stylesheet" href="/src/css/page/[url].css">
 {% endblock %}
 
 {% block body %}
@@ -25,5 +25,5 @@
 </script>
 <!-- @SCRIPT -->
 <script src="{{nejRoot}}"></script>
-<script src="{{jspro}}page/$url/entry.js"></script>
+<script src="{{jspro}}page/[url]/entry.js"></script>
 {% endblock %}

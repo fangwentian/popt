@@ -1,5 +1,5 @@
 /**
- * Created by xxx on 2017-07-01.
+ * Created by [username] on [date].
  * xxx
  */
 NEJ.define([
@@ -13,7 +13,7 @@ NEJ.define([
         config: function(data) {
             _.extend(data, {
 
-            })
+            });
             this.supr(data);
         },
         init: function(data) {

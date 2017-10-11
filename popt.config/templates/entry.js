@@ -1,3 +1,7 @@
+/**
+ * Created by [username] on [date].
+ * xxx
+ */
 NEJ.define([
     'pro/widget/module',
     './modules/page.js'

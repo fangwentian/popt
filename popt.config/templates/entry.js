@@ -1,6 +1,6 @@
 /**
- * Created by [username] on [date].
- * xxx
+ * Created by <%=username%> on <%=date%>.
+ * description
  */
 NEJ.define([
     'pro/widget/module',

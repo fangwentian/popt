@@ -1,6 +1,6 @@
 /**
- * Created by [username] on [date].
- * xxx
+ * Created by <%=username%> on <%=date%>.
+ * description
  */
 NEJ.define([
     'pro/extend/util',                    // 对应对象_  (平台封装工具函数)

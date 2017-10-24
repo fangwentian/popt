@@ -1,7 +1,7 @@
 {% extends "wrap/layout.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/src/css/page/[url].css">
+<link rel="stylesheet" href="/src/css/page/<%=url%>.css">
 {% endblock %}
 
 {% block body %}

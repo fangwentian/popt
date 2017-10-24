@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs');
-const main = require('../core/main')
 const argv = yargs
     .usage('Usage: pt -p pop -u marketing/coupon, you must hava a popt.config folder to store the config files.')
+    .version()
+    .alias('v', 'version')
     .option('url', {
         alias: 'u',
         describe: 'page url, such as "marketing/coupon"'
@@ -21,5 +22,7 @@ const argv = yargs
     .argv;
 
 let {url, project, force} = argv;
-main(url, project, force);
+
+if(help || version) return;
+require('../core/main')(url, project, force);
 
